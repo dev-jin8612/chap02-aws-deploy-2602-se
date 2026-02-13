@@ -112,7 +112,7 @@ jobs:
       # 7단계: 업데이트된 태스크 정의로 ECS 서비스 배포 실행
       - name: Deploy Amazon ECS task definition
         # AWS에서 제공하는 ECS 배포 액션 사용
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v3
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           # 이전 단계에서 업데이트된 태스크 정의 사용
           task-definition: ${{ steps.task-def.outputs.task-definition }}
