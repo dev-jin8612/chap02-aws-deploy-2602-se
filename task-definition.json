@@ -2,7 +2,7 @@
   "containerDefinitions": [
     {
       "name": "chap02-container2",
-      "image": "827025938160.dkr.ecr.ap-northeast-2.amazonaws.com/chap02-aws-deploy@sha256:e6f0994122a1c0b666ab87dc0b1eeb0a7af781ca84693e0c6a75ed6352579e54",
+      "image": "827025938160.dkr.ecr.ap-northeast-2.amazonaws.com/chap02-aws-deploy:latest",
       "cpu": 512,
       "memory": 307,
       "memoryReservation": 205,
@@ -63,7 +63,7 @@
       "healthCheck": {
         "command": [
           "CMD-SHELL",
-          "wget --no-verbose --tries=1 --spider -f http://localhost:8080/actuator/health || exit 1"
+          "curl -f http://localhost:8080/actuator/health || exit 1"
         ],
         "interval": 30,
         "timeout": 5,
@@ -74,7 +74,7 @@
     }
   ],
   "family": "chap02-task-definition",
-  "executionRoleArn": "arn:aws:iam::851725437767:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::827025938160:role/ecsTaskExecutionRole",
   "networkMode": "bridge",
   "volumes": [],
   "placementConstraints": [],
